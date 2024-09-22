@@ -6,7 +6,7 @@ const CardGrid = ({ cards, selectedCards, handleSelectedCard, showPrices }) => {
       {cards.map((card) => (
         <div
           key={card.id}
-          className={`relative bg-white rounded-3xl overflow-hidden shadow-lg ${selectedCards.includes(card.name) ? ' opacity-30 ' : ''}`}
+          className={`relative bg-black rounded-3xl overflow-hidden shadow-lg ${selectedCards.includes(card.name) ? ' opacity-30 ' : ''}`}
           onClick={(e) => handleSelectedCard(e, card.name)}
         >
           <div className=" absolute bottom-9 right-5 bg-indigo-900 rounded-lg w-fit text-white">
@@ -17,7 +17,7 @@ const CardGrid = ({ cards, selectedCards, handleSelectedCard, showPrices }) => {
             </div>
           )}
           </div>
-          <img className="w-full h-full object-cover" src={card.image_uris.large} alt={card.name} />
+          <img className="" src={card.image_uris.large} alt={card.name} />
         </div>
       ))}
     </div>

@@ -2,15 +2,10 @@ import React from 'react';
 
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-
-
-import greenIcon from '../assets/icons/green.png';
-import whiteIcon from '../assets/icons/white.png';
-import redIcon from '../assets/icons/red.png';
-import blueIcon from '../assets/icons/blue.png';
-import blackIcon from '../assets/icons/black.png';
 import titleBg from '../assets/icons/bg.png'
-const CardSelectionPercentage = ({ selectedCards, totalCards, allCards }) => {
+
+
+const CardSelectionPercentage = ({ selectedCards, totalCards, allCards, totalWorthEUR, totalWorthUSD }) => {
 
   // const [blackSelectedCards, setBlackSelectedCards] = useState(null);
 
@@ -114,31 +109,37 @@ const CardSelectionPercentage = ({ selectedCards, totalCards, allCards }) => {
       {/* <h3>All Cards</h3> */}
 
       <div className="flex flex-col md:flex-row justify-evenly">
-      <img src={titleBg} alt="Title" className="h-72 md:h-72 w-full md:w-auto object-contain -mt-4 md:mt-0" />
-      <div className=" flex gap-2 justify-center items-center flex-wrap ">
+        <img src={titleBg} alt="Title" className="h-72 md:h-72 w-full md:w-auto object-contain -mt-4 md:mt-0" />
+        <div className=" flex gap-2 justify-center items-center flex-wrap ">
 
-          <div style={{ width: '125px', height: '125px', }}>
-            <CircularProgressbar
-              value={percentage}
-              text={`${percentage}%`}
-              strokeWidth={10}
+          <div className='flex gap-3'>
 
-              styles={{
-                text: {
-                  fontSize: '40px',
-                  fontWeight: 'bold',
-                  fill: '#e0a13a',
-                },
-                trail: {
-                  stroke: '#f2f2f2',
-                },
-                path: {
-                  stroke: '#e0a13a',
-                },
-              }}
-            />
+            
+          <div className="text-white flex flex-col justify-center items-center">
+              <p className='text-[30px] text-[#dfbc84]'>${totalWorthUSD.toFixed(2)}</p>
+              <p className='text-[30px] text-[#dfbc84]'>€{totalWorthEUR.toFixed(2)}</p>
+            </div>
+            <div style={{ width: '125px', height: '125px', }}>
+              <CircularProgressbar
+                value={percentage}
+                text={`${percentage}%`}
+                strokeWidth={10}
+                styles={{
+                  text: {
+                    fontSize: '40px',
+                    fontWeight: 'bold',
+                    fill: '#e0a13a',
+                  },
+                  trail: {
+                    stroke: '#f2f2f2',
+                  },
+                  path: {
+                    stroke: '#e0a13a',
+                  },
+                }}
+              />
+            </div>
           </div>
-
 
           <div style={{ width: '90px', height: '90px', }} className="">
             {/* <img className='border border-purple-400'  src={greenIcon} alt={"green"} /> */}
@@ -163,6 +164,7 @@ const CardSelectionPercentage = ({ selectedCards, totalCards, allCards }) => {
               }}
             />
           </div>
+
           <div style={{ width: '90px', height: '90px', }} className="">
             {/* <img className='border border-purple-400'  src={blueIcon} alt={"blue"} /> */}
             <CircularProgressbar
@@ -184,8 +186,8 @@ const CardSelectionPercentage = ({ selectedCards, totalCards, allCards }) => {
               }}
             />
           </div>
+
           <div style={{ width: '90px', height: '90px', }} className="">
-            {/* <img className='border border-purple-400'  src={whiteIcon} alt={"white"} /> */}
             <CircularProgressbar
               value={whitePercentage}
               text={`${whitePercentage}%`}
@@ -205,6 +207,7 @@ const CardSelectionPercentage = ({ selectedCards, totalCards, allCards }) => {
               }}
             />
           </div>
+
           <div style={{ width: '90px', height: '90px', }} className="">
             {/* <img className='border border-purple-400'  src={blackIcon} alt={"black"} /> */}
             <CircularProgressbar
@@ -226,6 +229,7 @@ const CardSelectionPercentage = ({ selectedCards, totalCards, allCards }) => {
               }}
             />
           </div>
+
           <div style={{ width: '90px', height: '90px', }} className="">
             {/* <img className='border border-purple-400'  src={redIcon} alt={"black"} /> */}
             <CircularProgressbar
@@ -247,6 +251,7 @@ const CardSelectionPercentage = ({ selectedCards, totalCards, allCards }) => {
               }}
             />
           </div>
+
         </div>
       </div>
     </div>
